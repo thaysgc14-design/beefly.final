@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <title>BeeFly - Lista de Clientes</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
+
 <body>
     <div class="window-container">
         <img th:src="@{/img/beeflymenor.jpg}" alt="Logo" class="header-logo">
-        
+
         <span class="user-box-label">Usuário</span>
         <div class="user-display" th:text="${session.nomeUsuario != null ? session.nomeUsuario : 'Admin'}"></div>
 
@@ -29,7 +31,7 @@
                     <tr th:each="c : ${clientes}">
                         <td th:text="${c.nome}"></td>
                         <td th:text="${c.cpf}"></td>
-                        <td th:text="${c.nascimento}"></td>
+                        <td th:text="${#temporals.format(c.nascimento, 'dd/MM/yyyy')}"></td>
                         <td th:text="${c.telefone}"></td>
                     </tr>
                 </tbody>
@@ -39,4 +41,5 @@
         <a th:href="@{/menu}" class="btn-voltar">Voltar</a>
     </div>
 </body>
+
 </html>

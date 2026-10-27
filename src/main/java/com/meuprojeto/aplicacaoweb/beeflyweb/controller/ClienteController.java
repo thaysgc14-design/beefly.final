@@ -51,21 +51,17 @@ public class ClienteController {
    @PostMapping("/salvarCliente")
     public String salvarCliente(@ModelAttribute Cliente cliente, Model model) {
         try {
-            // 1. Limpa o CPF para contar apenas os números
             String cpfLimpo = cliente.getCpf() != null ? cliente.getCpf().replaceAll("[^0-9]", "") : "";
             
-            // 2. Valida se tem exatamente 11 dígitos
             if (cpfLimpo.length() != 11) {
                 model.addAttribute("erro", "O CPF precisa ter exatos 11 dígitos.");
                 model.addAttribute("cliente", cliente);
                 return "cadastroClientes"; // Retorna para o formulário com o pop-up de erro
             }
 
-            // 3. Aplica a formatação padrão (987.654.321-00)
             String cpfFormatado = cpfLimpo.replaceAll("(\\d{3})(\\d{3})(\\d{3})(\\d{2})", "$1.$2.$3-$4");
             cliente.setCpf(cpfFormatado);
 
-            // 4. Salva no banco se passar na validação
             clienteRepository.save(cliente);
             return "redirect:/clientes";
             
