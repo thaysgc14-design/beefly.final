@@ -27,7 +27,7 @@ public class ClienteTest {
     public void testSalvarEBuscarClienteComSucesso() {
         Cliente cliente = new Cliente();
         cliente.setNome("Carlos Alberto Teste");
-        cliente.setCpf("123.400.789-01");
+        cliente.setCpf("123.006.789-01");
         cliente.setNascimento(LocalDate.of(1990, 5, 15));
         cliente.setTelefone("98967-6655");
 
