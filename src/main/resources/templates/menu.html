@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>BeeFly - Menu</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="window-container">
+        <img th:src="@{/img/beeflymenor.jpg}" alt="Logo" class="header-logo">
+        
+        <span class="user-box-label">Usuário</span>
+        <div class="user-display" th:text="${session.nomeUsuario != null ? session.nomeUsuario : 'Admin'}"></div>
+
+        <h1 class="titulo-sistema" style="top: 40px;">BeeFly</h1>
+        <h2 class="subtitulo-tela">Menu</h2>
+
+        <!-- Botões do Menu (usando position absolute para centralizar) -->
+        <a th:href="@{/clientes}" class="btn-menu" style="position: absolute; left: 340px; top: 230px; width: 220px;">Clientes</a>
+        <a th:href="@{/novoCliente}" class="btn-menu" style="position: absolute; left: 340px; top: 300px; width: 220px;">Cadastro Clientes</a>
+        <a th:href="@{/login}" class="btn-menu" style="position: absolute; left: 340px; top: 370px; width: 220px;">Sair</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>BeeFly - Lista de Clientes</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="window-container">
+        <img th:src="@{/img/beeflymenor.jpg}" alt="Logo" class="header-logo">
+        
+        <span class="user-box-label">Usuário</span>
+        <div class="user-display" th:text="${session.nomeUsuario != null ? session.nomeUsuario : 'Admin'}"></div>
+
+        <h1 class="titulo-sistema" style="top: 40px;">BeeFly</h1>
+        <h3 class="subtitulo-tela">Lista Clientes</h3>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>CPF</th>
+                        <th>Data</th>
+                        <th>Telefone</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="c : ${clientes}">
+                        <td th:text="${c.nome}"></td>
+                        <td th:text="${c.cpf}"></td>
+                        <td th:text="${c.nascimento}"></td>
+                        <td th:text="${c.telefone}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <a th:href="@{/menu}" class="btn-voltar">Voltar</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>BeeFly - Cadastro de Utilizador</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+    <div class="window-container">
+        <img th:src="@{/img/beeflymenor.jpg}" alt="Logo" class="header-logo">
+
+        <h1 class="titulo-sistema" style="top: 40px;">BeeFly</h1>
+        <h3 class="subtitulo-tela">Cadastro de Usuário</h3>
+
+        <form th:action="@{/salvarUsuario}" th:object="${usuario}" method="post">
+            <!-- Nome -->
+            <label class="form-label" style="top: 200px;">Nome:</label>
+            <input type="text" th:field="*{nome}" required class="form-input"
+                style="top: 200px; width: 348px; border: 2px solid #0078D7;">
+
+            <!-- Data Nascimento -->
+            <label class="form-label" style="top: 250px;">Data Nascimento:</label>
+            <input type="date" th:field="*{dataNas}" required class="form-input" style="top: 250px; width: 180px;">
+
+            <!-- Função (Adicionei required e maxlength) -->
+            <label class="form-label" style="top: 300px;">Função:</label>
+            <input type="text" th:field="*{funcao}" required maxlength="15" class="form-input"
+                style="top: 300px; width: 348px;">
+
+            <!-- Login -->
+            <label class="form-label" style="top: 350px;">Login:</label>
+            <input type="text" th:field="*{login}" required class="form-input" style="top: 350px; width: 348px;">
+
+            <!-- Senha (Adicionei maxlength="8") -->
+            <label class="form-label" style="top: 400px;">Senha:</label>
+            <input type="password" th:field="*{senha}" required maxlength="8" class="form-input"
+                style="top: 400px; width: 348px;">
+            <a th:href="@{/login}" class="btn-voltar">Voltar</a>
+            <button type="submit" class="btn-salvar">Salvar</button>
+        </form>
+    </div>
+    <script th:if="${erro}">
+        window.onload = function () {
+            alert("[[${erro}]]");
+        };
+    </script>
+</body>
+
+</html>

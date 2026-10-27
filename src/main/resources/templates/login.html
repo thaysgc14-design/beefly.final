@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>BeeFly - Login</title>
+    <!-- Mudei para v=3 para forçar o navegador a baixar o novo CSS -->
+    <link rel="stylesheet" th:href="@{/css/style.css(v='3')}">
+</head>
+<body>
+    <div class="window-container">
+        <img th:src="@{/img/beeflymenor.jpg}" alt="Logo" class="header-logo">
+        
+        <!-- O login não tem usuário logado ainda, então removi a caixa de usuário -->
+        
+        <h1 class="titulo-sistema" style="top: 100px;">BeeFly</h1>
+
+        <form th:action="@{/fazerLogin}" method="post">
+            <div th:if="${erro}" style="position: absolute; top: 170px; width: 100%; text-align: center; color: red; font-weight: bold;" th:text="${erro}"></div>
+
+            <label class="form-label" style="top: 250px;">Login:</label>
+            <input type="text" name="login" required class="form-input" style="top: 250px; width: 348px; border: 2px solid #0078D7;">
+
+            <label class="form-label" style="top: 330px;">Senha:</label>
+            <input type="password" name="senha" required class="form-input" style="top: 330px; width: 348px;">
+
+            <a th:href="@{/novoUsuario}" class="btn-voltar" style="width: 200px;">Cadastro usuário</a>
+            <button type="submit" class="btn-salvar">Entrar</button>
+        </form>
+    </div>
+</body>
+</html>

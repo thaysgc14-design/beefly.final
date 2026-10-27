@@ -1,0 +1,153 @@
+/* Configuração global */
+body {
+    background-color: #f0f0f0; /* Cinza fora da janela */
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Janela principal (Swing look) */
+.window-container {
+    width: 900px;
+    height: 600px;
+    background-color: #FFCC33; /* Amarelo */
+    border: 1px solid #000000;
+    position: relative; /* ESSENCIAL PARA O POSICIONAMENTO ABSOLUTO FUNCIONAR */
+    box-sizing: border-box;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Logótipo */
+.header-logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: auto;
+    background-color: white;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+/* Título BeeFly */
+.titulo-sistema {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 60px;
+    font-weight: normal;
+    margin: 0;
+    color: #000000;
+}
+
+/* Subtítulos */
+.subtitulo-tela {
+    position: absolute;
+    top: 130px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0;
+    color: #000000;
+}
+
+/* Caixa do Utilizador */
+.user-box-label {
+    position: absolute;
+    left: 70px;
+    top: 160px;
+    font-size: 24px;
+}
+
+.user-display {
+    position: absolute;
+    left: 30px;
+    top: 210px;
+    width: 182px;
+    height: 35px;
+    background-color: #ffffff;
+    border: 1px solid #999;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Rótulos dos formulários */
+.form-label {
+    position: absolute;
+    left: 250px;
+    font-size: 24px;
+}
+
+/* Campos de texto */
+.form-input {
+    position: absolute;
+    left: 450px;
+    height: 30px;
+    font-size: 18px;
+    border: 1px solid #999;
+    padding: 2px 5px;
+}
+
+.form-input:focus {
+    border: 2px solid #0078D7;
+    outline: none;
+}
+
+/* Botões */
+.btn-voltar, .btn-salvar, .btn-menu {
+    position: absolute;
+    height: 35px;
+    background-color: #f0f0f0;
+    border: 1px solid #000;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-voltar:hover, .btn-salvar:hover, .btn-menu:hover {
+    background-color: #e0e0e0;
+}
+
+.btn-voltar { bottom: 30px; left: 30px; width: 150px; }
+.btn-salvar { bottom: 30px; right: 30px; width: 120px; }
+
+/* Tabela */
+.table-container {
+    position: absolute;
+    left: 250px;
+    top: 200px;
+    width: 600px;
+    height: 300px;
+    overflow-y: auto;
+    background: #fff;
+    border: 1px solid #000;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    text-align: left;
+}
+
+table th {
+    background-color: #f2f2f2;
+}

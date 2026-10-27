@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>BeeFly - Cadastro de Clientes</title>
+    <!-- Subi para v='5' para garantir a atualização do CSS -->
+    <link rel="stylesheet" th:href="@{/css/style.css(v='5')}">
+</head>
+
+<body>
+    <div class="window-container">
+
+        <img th:src="@{/img/beeflymenor.jpg}" alt="Logo" class="header-logo">
+
+        <span class="user-box-label">Usuário</span>
+        <div class="user-display" th:text="${session.nomeUsuario != null ? session.nomeUsuario : 'Admin'}"></div>
+
+        <h1 class="titulo-sistema" style="top: 40px;">BeeFly</h1>
+        <h3 class="subtitulo-tela">Cadastro de Clientes</h3>
+        <div th:if="${erro}"
+            style="position: absolute; top: 148px; left: 253px; color: darkred; font-weight: bold; font-size: 14px;"
+            th:text="${erro}"></div>
+
+        <form th:action="@{/salvarCliente}" th:object="${cliente}" method="post">
+            <!-- Nome -->
+            <label style="position: absolute; top: 180px; left: 253px; font-size: 24px;">Nome:</label>
+            <input type="text" th:field="*{nome}" required
+                style="position: absolute; top: 180px; left: 450px; width: 348px; height: 28px; font-size: 18px;">
+
+            <!-- CPF -->
+            <label style="position: absolute; top: 235px; left: 253px; font-size: 24px;">CPF:</label>
+            <input type="text" th:field="*{cpf}" placeholder="000.000.000-00" required
+                style="position: absolute; top: 235px; left: 450px; width: 130px; height: 28px; font-size: 18px;">
+
+            <!-- Data Nascimento -->
+            <label style="position: absolute; top: 290px; left: 253px; font-size: 24px;">Data Nascimento:</label>
+            <input type="date" th:field="*{nascimento}" required
+                style="position: absolute; top: 290px; left: 450px; width: 180px; height: 28px; font-size: 18px;">
+
+            <!-- Telefone -->
+            <label style="position: absolute; top: 345px; left: 253px; font-size: 24px;">Telefone:</label>
+            <input type="text" th:field="*{telefone}" placeholder="00000-0000" required
+                style="position: absolute; top: 345px; left: 450px; width: 130px; height: 28px; font-size: 18px;">
+
+            <!-- Botões -->
+            <button type="button" class="btn-voltar" th:onclick="|window.location.href='@{/menu}'|">Voltar</button>
+            <button type="submit" class="btn-salvar">Salvar</button>
+        </form>
+    </div>
+    <script th:if="${erro}">
+        window.onload = function() {
+            alert("[[${erro}]]");
+        };
+    </script>
+</body>
+
+</html>
